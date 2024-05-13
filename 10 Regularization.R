@@ -22,7 +22,8 @@ scores <- sapply(1:nrow(schools), function(i){
 })
 schools <- schools %>% mutate(score = sapply(scores, mean))
 
-schools %>% ggplot(aes(size, score) + geom_point(alpha = 0.5) + geom_point(data=filter(schools,ranks<=10), col=2))
+schools %>% ggplot(aes(size, score)) + geom_point(alpha = 0.5) + geom_point(data=filter(schools, rank <= 10), col=2)
+
 
 #regularizing schools
 overall <- mean(sapply(scores, mean))
